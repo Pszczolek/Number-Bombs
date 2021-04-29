@@ -74,6 +74,7 @@ public class InputReader : MonoBehaviour
             return;
         currentNumber = currentNumber*10 + digit;
         OnDigitEntered(currentNumber);
+        ParticleTextController.Instance.TextEntered(currentNumber.ToString());
     }
 
     public void ClearNumber()
