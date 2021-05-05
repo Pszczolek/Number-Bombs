@@ -50,7 +50,7 @@ public class SFXPlayer : MonoBehaviour
         //Vector3 playPos = new Vector3(position.x, position.y, _cameraPos.z);
         Vector3 playPos = Vector3.Normalize(position - transform.position) * 2;
         var randomSound = explosionSounds[Random.Range(0, explosionSounds.Count)];
-        Debug.Log(playPos);
+        //Debug.Log(playPos);
         AudioSource.PlayClipAtPoint(randomSound, playPos, volume);
     }
 
