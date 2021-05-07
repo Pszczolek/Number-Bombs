@@ -12,10 +12,12 @@ public class GameManager : MonoBehaviour
     public Action OnGameRestart;
 
     public bool isGamePaused;
+    [SerializeField] GameSession gameSession;
 
     private void Awake()
     {
         Instance = this;
+        gameSession.isGameStarted = true;
     }
 
     public void GameOver()
@@ -55,6 +57,7 @@ public class GameManager : MonoBehaviour
     private void OnDestroy()
     {
         Time.timeScale = 1;
+        gameSession.isGameStarted = false;
     }
 
     //public void UnPauseGame()

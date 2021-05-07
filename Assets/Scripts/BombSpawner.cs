@@ -23,6 +23,8 @@ public class BombSpawner : MonoBehaviour
     Transform leftSpawnPoint;
     [SerializeField]
     Transform rightSpawnPoint;
+    [SerializeField]
+    GameSession gameSession;
 
     private Difficulty _difficulty;
     private int _difficultyIncrementIndex = 0;
@@ -33,6 +35,7 @@ public class BombSpawner : MonoBehaviour
     {
         Instance = this;
         StartSpawn();
+        gameSession.ResetGameSession(_difficulty.difficultyName);
     }
 
     private void Start()
@@ -85,6 +88,7 @@ public class BombSpawner : MonoBehaviour
 
     public void Restart()
     {
+        gameSession.ResetGameSession(_difficulty.difficultyName);
         ClearBombs();
         StartSpawn();
     }

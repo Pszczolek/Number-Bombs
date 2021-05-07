@@ -11,10 +11,14 @@ public class Player : MonoBehaviour
     public int currentLifes = 3;
     public int score = 0;
 
-    bool dead = false;
-
     public Action<int> OnHealthChanged;
     public Action<int> OnScoreChanged;
+
+    [SerializeField] GameSession gameSession;
+    bool dead = false;
+
+
+
 
     private void Awake()
     {
@@ -66,6 +70,7 @@ public class Player : MonoBehaviour
             return;
 
         score += value;
+        gameSession.score = score;
         if(OnScoreChanged != null)
         {
             OnScoreChanged(score);

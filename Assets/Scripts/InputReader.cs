@@ -23,7 +23,7 @@ public class InputReader : MonoBehaviour
         Event e = Event.current;
         if (e.isKey)
         {
-            Debug.Log("Detected key code: " + e.keyCode);
+            //Debug.Log("Detected key code: " + e.keyCode);
         }
         if (e.type != EventType.KeyDown || e.keyCode == KeyCode.None)
             return;
@@ -68,20 +68,20 @@ public class InputReader : MonoBehaviour
 
     public void DigitEntered(int digit)
     {
-        Debug.Log($"DigitEntered: {digit}");
+        //Debug.Log($"DigitEntered: {digit}");
         if (digit == 0 && currentNumber == 0)
             return;
         if (currentNumber >= 9999999)
             return;
         currentNumber = currentNumber*10 + digit;
-        Debug.Log($"Current number: {currentNumber}");
+        //Debug.Log($"Current number: {currentNumber}");
         OnDigitEntered(currentNumber);
         ParticleTextController.Instance.TextEntered(currentNumber.ToString());
     }
 
     public void ClearNumber()
     {
-        Debug.Log("ClearNumber");
+        //Debug.Log("ClearNumber");
         currentNumber = 0;
         OnDigitEntered(currentNumber);
     }
@@ -90,7 +90,7 @@ public class InputReader : MonoBehaviour
     {
         if (currentNumber == 0)
             return;
-        Debug.Log("Number fired");
+        //Debug.Log("Number fired");
         OnNumberFired(currentNumber);
         ClearNumber();
     }
