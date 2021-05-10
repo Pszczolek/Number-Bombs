@@ -88,8 +88,6 @@ public class InputReader : MonoBehaviour
 
     public void NumberFired()
     {
-        if (currentNumber == 0)
-            return;
         //Debug.Log("Number fired");
         OnNumberFired(currentNumber);
         ClearNumber();

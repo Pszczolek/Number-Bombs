@@ -4896,12 +4896,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserSounds:
-  - {fileID: 8300000, guid: 693a40efcc751094ba2729a300b60162, type: 3}
+  - {fileID: 8300000, guid: ffe10d0291e331942be513cb1f19f683, type: 3}
   explosionSounds:
-  - {fileID: 8300000, guid: d1c05799c04f0ee45b656cfc4c5c7174, type: 3}
-  - {fileID: 8300000, guid: 572b52f0d72750940954de62c0f8163f, type: 3}
-  - {fileID: 8300000, guid: 7b80d5524d8fa8749ba74dab8a1941ae, type: 3}
-  - {fileID: 8300000, guid: fe11ee0bfa5ce5f4bb9738707217d1e1, type: 3}
+  - {fileID: 8300000, guid: 649edd9508bcc9f4585880a053c2a03f, type: 3}
+  - {fileID: 8300000, guid: 53416e632a06a2f4d931c3db39cda4ef, type: 3}
+  - {fileID: 8300000, guid: f1be377be155b884e903daa9045bc168, type: 3}
+  - {fileID: 8300000, guid: 8fec2e4fddec22440b38a6a2a8c37f57, type: 3}
   volume: 1
   gameSettings: {fileID: 11400000, guid: 88493f7782c224646ad31782549048fa, type: 2}
 --- !u!4 &1364194395
@@ -5743,7 +5743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25facd9dfd6643e4295b62b9e2d98832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseLifes: 1
+  baseLifes: 5
   currentLifes: 3
   score: 0
   gameSession: {fileID: 11400000, guid: 308a78290d89ff348b443e7e8df7d411, type: 2}
@@ -6000,7 +6000,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -996.1807, y: -560.28033}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1706914183

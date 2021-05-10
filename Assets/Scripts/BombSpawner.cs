@@ -84,6 +84,10 @@ public class BombSpawner : MonoBehaviour
     public void GameOver()
     {
         StopSpawn();
+        foreach(var bomb in spawnedBombs)
+        {
+            bomb.SetMovement(Vector3.zero);
+        }
     }
 
     public void Restart()
