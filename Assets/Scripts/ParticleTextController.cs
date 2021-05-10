@@ -5,16 +5,17 @@ using CartoonFX;
 
 public class ParticleTextController : MonoBehaviour
 {
-    [SerializeField] CFXR_ParticleText bombHitTextPrefab;
-    [SerializeField] CFXR_ParticleText bombLostTextPrefab;
-    [SerializeField] CFXR_ParticleText inputTextPrefab;
+    [SerializeField] CFXR_ParticleText_Runtime bombHitTextPrefab;
+    [SerializeField] CFXR_ParticleText_Runtime bombLostTextPrefab;
+    [SerializeField] CFXR_ParticleText_Runtime inputTextPrefab;
     [SerializeField] float textZOffset = 5;
     [SerializeField] float textLostYOffset = 1;
 
     public static ParticleTextController Instance;
 
     private Vector3 _cameraPos;
-    private CFXR_ParticleText _inputParticleText;
+    private CFXR_ParticleText_Runtime _inputParticleText;
+    private ParticleSystem _inputParticleSysten;
 
     private void Awake()
     {
@@ -27,7 +28,9 @@ public class ParticleTextController : MonoBehaviour
         var position = _cameraPos + Vector3.forward * 10;
         _inputParticleText = Instantiate(inputTextPrefab, position, Quaternion.identity);
         _inputParticleText.text = string.Empty;
-        _inputParticleText.GenerateText();
+        _inputParticleSysten = _inputParticleText.GetComponent<ParticleSystem>();
+        _inputParticleSysten.Clear();
+        //_inputParticleText.GenerateText(string.Empty);
     }
 
     // Update is called once per frame
@@ -45,10 +48,13 @@ public class ParticleTextController : MonoBehaviour
         var distance = Vector3.Distance(position, _cameraPos);
         newText.transform.position = Vector3.MoveTowards(position, _cameraPos, distance - 10);
         newText.text = bomb.number.ToString();
-        newText.GenerateText();
+        newText.GenerateText(newText.text);
 
-        _inputParticleText.text = "HIT!";
-        _inputParticleText.GenerateText();
+        PlayInputText("hit!");
+        //_inputParticleText.text = "HIT!";
+        //_inputParticleText.GenerateText(_inputParticleText.text);
+        //_inputParticleSysten.Clear();
+        //_inputParticleSysten.Play();
     }
 
     public void BombLost(Bomb bomb)
@@ -58,20 +64,29 @@ public class ParticleTextController : MonoBehaviour
         var distance = Vector3.Distance(position, _cameraPos);
         newText.transform.position = Vector3.MoveTowards(position, _cameraPos, distance - 10);
         newText.text = bomb.number.ToString();
-        newText.GenerateText();
+        newText.GenerateText(newText.text);
     }
 
     public void BombMissed()
     {
-        _inputParticleText.text = "MISS!";
-        _inputParticleText.GenerateText();
+        PlayInputText("miss!");
+        //_inputParticleText.text = "MISS!";
+        //_inputParticleText.GenerateText(_inputParticleText.text);
+        //_inputParticleSysten.Clear();
+        //_inputParticleSysten.Play();
     }
 
     public void TextEntered(string text)
     {
+        PlayInputText(text);
+    }
 
+    private void PlayInputText(string text)
+    {
         _inputParticleText.text = text.ToUpper();
-        _inputParticleText.GenerateText();
+        _inputParticleText.GenerateText(_inputParticleText.text);
+        _inputParticleSysten.Clear();
+        _inputParticleSysten.Play();
     }
 
 

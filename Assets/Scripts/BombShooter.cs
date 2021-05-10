@@ -27,12 +27,12 @@ public class BombShooter : MonoBehaviour
         {
             FaceTarget(target.transform.position);
             target.Hit();
-            Debug.Log("Bomb hit!");
+            //Debug.Log("Bomb hit!");
         }
         else
         {
             ShootLaser();
-            Debug.Log("Miss!");
+            //Debug.Log("Miss!");
             ParticleTextController.Instance.BombMissed();
         }
     }
@@ -41,7 +41,7 @@ public class BombShooter : MonoBehaviour
     {
         turret.transform.LookAt(position);
         Vector3 look = turret.transform.rotation.eulerAngles;
-        Debug.Log($"Rotation: {look}");
+        //Debug.Log($"Rotation: {look}");
         ShootLaser(position);
 
     }
