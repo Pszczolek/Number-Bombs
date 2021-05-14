@@ -59,7 +59,7 @@ public class ParticleTextController : MonoBehaviour
 
     public void BombLost(Bomb bomb)
     {
-        var position = bomb.transform.position + new Vector3(0,textLostYOffset, 0);
+        var position = bomb.transform.position + new Vector3(0, textLostYOffset, 0);
         var newText = Instantiate(bombLostTextPrefab, position, Quaternion.identity);
         var distance = Vector3.Distance(position, _cameraPos);
         newText.transform.position = Vector3.MoveTowards(position, _cameraPos, distance - 10);

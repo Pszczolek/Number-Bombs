@@ -14659,8 +14659,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3400703963941931706}
   - component: {fileID: 2229257376037207714}
-  - component: {fileID: 2779191712618088428}
   - component: {fileID: 1675639594421493772}
+  - component: {fileID: -5878622636651481029}
   m_Layer: 0
   m_Name: CFXR _Number
   m_TagString: Untagged
@@ -19562,3 +19562,29 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-5878622636651481029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8007537606131193808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03c8102322ad0d04fa6ae3f17887e967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: 
+  size: 1
+  letterSpacing: 0.35
+  backgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  color1: {r: 0.4251615, g: 0.7264151, b: 0.2775454, a: 1}
+  color2: {r: 1, g: 1, b: 1, a: 1}
+  delay: 0.05
+  cumulativeDelay: 1
+  compensateLifetime: 1
+  lifetimeMultiplier: 1.5
+  rotation: -5
+  sortingFudgeOffset: -0.1
+  font: {fileID: 11400000, guid: 6107d49d5744fb24eb855f7abb997756, type: 2}
+  refreshTextKey: 114

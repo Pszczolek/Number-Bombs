@@ -67,4 +67,13 @@ MonoBehaviour:
     bombsPerMinuteIncrement: 2
     bombSpeedIncrement: 0
     timeToIncrement: 30
-  selectedIndex: 2
+  - difficultyName: Fast 100
+    allowedOperations: -1
+    bombsPerMinute: 60
+    bombSpeed: 2
+    minNumber: 1
+    maxNumber: 100
+    bombsPerMinuteIncrement: 2
+    bombSpeedIncrement: 0
+    timeToIncrement: 30
+  selectedIndex: 6

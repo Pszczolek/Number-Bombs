@@ -13,11 +13,18 @@ public class GameManager : MonoBehaviour
 
     public bool isGamePaused;
     [SerializeField] GameSession gameSession;
+    [Range(0, 1)]
+    [SerializeField] float timeScale;
 
     private void Awake()
     {
         Instance = this;
         gameSession.isGameStarted = true;
+    }
+
+    private void Update()
+    {
+        Time.timeScale = timeScale;
     }
 
     public void GameOver()
