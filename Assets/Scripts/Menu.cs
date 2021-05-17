@@ -8,6 +8,7 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private GameSettings gameSettings;
+
     private void Awake()
     {
         if (volumeSlider)

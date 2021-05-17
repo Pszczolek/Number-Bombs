@@ -22,6 +22,7 @@ MonoBehaviour:
     bombsPerMinuteIncrement: 1
     bombSpeedIncrement: 0
     timeToIncrement: 60
+    customDifficulty: 0
   - difficultyName: Primary Medium
     allowedOperations: 3
     bombsPerMinute: 15
@@ -31,6 +32,7 @@ MonoBehaviour:
     bombsPerMinuteIncrement: 1
     bombSpeedIncrement: 0
     timeToIncrement: 40
+    customDifficulty: 0
   - difficultyName: Multiplication Table
     allowedOperations: 12
     bombsPerMinute: 15
@@ -40,6 +42,7 @@ MonoBehaviour:
     bombsPerMinuteIncrement: 1
     bombSpeedIncrement: 0
     timeToIncrement: 40
+    customDifficulty: 0
   - difficultyName: Plus Minus Fast
     allowedOperations: 3
     bombsPerMinute: 30
@@ -49,6 +52,7 @@ MonoBehaviour:
     bombsPerMinuteIncrement: 2
     bombSpeedIncrement: 0
     timeToIncrement: 30
+    customDifficulty: 0
   - difficultyName: Fast
     allowedOperations: -1
     bombsPerMinute: 30
@@ -58,6 +62,7 @@ MonoBehaviour:
     bombsPerMinuteIncrement: 2
     bombSpeedIncrement: 0
     timeToIncrement: 30
+    customDifficulty: 0
   - difficultyName: Fast 500
     allowedOperations: -1
     bombsPerMinute: 30
@@ -67,8 +72,9 @@ MonoBehaviour:
     bombsPerMinuteIncrement: 2
     bombSpeedIncrement: 0
     timeToIncrement: 30
-  - difficultyName: Fast 100
-    allowedOperations: -1
+    customDifficulty: 0
+  - difficultyName: Custom
+    allowedOperations: 15
     bombsPerMinute: 60
     bombSpeed: 2
     minNumber: 1
@@ -76,4 +82,5 @@ MonoBehaviour:
     bombsPerMinuteIncrement: 2
     bombSpeedIncrement: 0
     timeToIncrement: 30
+    customDifficulty: 1
   selectedIndex: 6

@@ -14,4 +14,24 @@ public class Difficulty
     public float bombsPerMinuteIncrement = 1;
     public float bombSpeedIncrement = 0;
     public float timeToIncrement = 60;
+    public bool customDifficulty = false;
+
+    public bool IsOperationAllowed(int index)
+    {
+        return (allowedOperations & (OperationType)(1 << (index - 1))) ==
+                        (OperationType)(1 << (index - 1)) ? true : false;
+    }
+
+    public bool IsOperationAllowed(OperationType operation)
+    {
+        return allowedOperations.HasFlag(operation);
+    }
+
+    public void AllowOperation(OperationType operation)
+    {
+        Debug.Log($"Allowed before change: {allowedOperations}");
+        allowedOperations |= operation;
+        Debug.Log($"Allowed after change: {allowedOperations}");
+    }
+
 }
