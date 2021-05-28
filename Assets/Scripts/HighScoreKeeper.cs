@@ -97,7 +97,7 @@ public class HighScoreKeeper : MonoBehaviour
         LoadScores();
         if(highScores == null)
         {
-            var difficultyNames = difficultyOptions.difficulties.Select(d => d.difficultyName).ToList();
+            var difficultyNames = difficultyOptions.difficulties.Where(d => d.customDifficulty == false).Select(d => d.difficultyName).ToList();
             highScores = new HighScoresList(difficultyNames);
         }
         foreach(var difficultyName in difficultyOptions.GetDifficultyNames())

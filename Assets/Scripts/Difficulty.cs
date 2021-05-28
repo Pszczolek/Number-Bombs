@@ -34,4 +34,18 @@ public class Difficulty
         Debug.Log($"Allowed after change: {allowedOperations}");
     }
 
+    public void AutoIncrement()
+    {
+        float increment = Mathf.Floor(bombsPerMinute/10);
+        if(increment > 0)
+        {
+            timeToIncrement = Mathf.Ceil(60 / increment);
+        }
+        else
+        {
+            timeToIncrement = 60;
+        }
+        bombsPerMinuteIncrement = 1;
+    }
+
 }

@@ -17,11 +17,11 @@ public class DifficultySetter : MonoBehaviour
     [SerializeField]
     private Slider bombsPerMinuteSlider;
     [SerializeField]
-    private TMP_Text bombsPerMinuteText;
+    private TMP_InputField bombsPerMinuteInputText;
     [SerializeField]
     private Slider maxNumberSlider;
     [SerializeField]
-    private TMP_Text maxNumberText;
+    private TMP_InputField maxNumberInputText;
 
     private bool allowChange = true;
 
@@ -74,10 +74,10 @@ public class DifficultySetter : MonoBehaviour
             difficultyOptions.SelectedDifficulty.AllowOperation(OperationType.Division);
         }
         difficultyOptions.SelectedDifficulty.bombsPerMinute = bombsPerMinuteSlider.value;
-        bombsPerMinuteText.text = bombsPerMinuteSlider.value.ToString();
+        bombsPerMinuteInputText.text = bombsPerMinuteSlider.value.ToString();
         difficultyOptions.SelectedDifficulty.maxNumber = Mathf.FloorToInt(maxNumberSlider.value);
-        maxNumberText.text = maxNumberSlider.value.ToString();
-
+        maxNumberInputText.text = maxNumberSlider.value.ToString();
+        difficultyOptions.SelectedDifficulty.AutoIncrement();
     }
 
     public void DisplayDifficultyInfo() {
@@ -87,9 +87,9 @@ public class DifficultySetter : MonoBehaviour
         operationToggles[2].isOn = difficultyOptions.SelectedDifficulty.IsOperationAllowed(OperationType.Multiplication);
         operationToggles[3].isOn = difficultyOptions.SelectedDifficulty.IsOperationAllowed(OperationType.Division);
         bombsPerMinuteSlider.value = difficultyOptions.SelectedDifficulty.bombsPerMinute;
-        bombsPerMinuteText.text = bombsPerMinuteSlider.value.ToString();
+        bombsPerMinuteInputText.text = bombsPerMinuteSlider.value.ToString();
         maxNumberSlider.value = difficultyOptions.SelectedDifficulty.maxNumber;
-        maxNumberText.text = maxNumberSlider.value.ToString();
+        maxNumberInputText.text = maxNumberSlider.value.ToString();
         //for (int i = 0; i < operationToggles.Length; i++)
         //{
         //    operationToggles[i].isOn = difficultyOptions.SelectedDifficulty.IsOperationAllowed(i+1);
@@ -98,13 +98,44 @@ public class DifficultySetter : MonoBehaviour
         allowChange = true;
     }
 
+    public void UpdateBombsPerMinuteSlider()
+    {
+        if (allowChange == false)
+            return;
+        allowChange = false;
+        if(int.TryParse(bombsPerMinuteInputText.text, out int value))
+        {
+            bombsPerMinuteSlider.value = value;
+            bombsPerMinuteInputText.text = bombsPerMinuteSlider.value.ToString();
+        }
+        allowChange = true;
+        bombsPerMinuteSlider.onValueChanged?.Invoke(bombsPerMinuteSlider.value);
+    }
+
+    public void UpdateMaxNumberSlider()
+    {
+        if (allowChange == false)
+            return;
+        allowChange = false;
+        if (int.TryParse(maxNumberInputText.text, out int value))
+        {
+            maxNumberSlider.value = value;
+            maxNumberInputText.text = maxNumberSlider.value.ToString();
+        }
+        allowChange = true;
+        maxNumberSlider.onValueChanged?.Invoke(maxNumberSlider.value);
+    }
+
     private void EnableToggles()
     {
+        bool isCustomDiff = difficultyOptions.SelectedDifficulty.customDifficulty;
         foreach (var t in operationToggles)
         {
-            t.interactable = difficultyOptions.SelectedDifficulty.customDifficulty;
+            t.interactable = isCustomDiff;
         }
-        bombsPerMinuteSlider.interactable = difficultyOptions.SelectedDifficulty.customDifficulty;
-        maxNumberSlider.interactable = difficultyOptions.SelectedDifficulty.customDifficulty;
+        bombsPerMinuteSlider.interactable = isCustomDiff;
+        maxNumberSlider.interactable = isCustomDiff;
+        bombsPerMinuteInputText.interactable = isCustomDiff;
+        maxNumberInputText.interactable = isCustomDiff;
     }
 }

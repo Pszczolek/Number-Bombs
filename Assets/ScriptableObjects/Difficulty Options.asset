@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Difficulty Options
   m_EditorClassIdentifier: 
   difficulties:
-  - difficultyName: Primary Easy
+  - difficultyName: Trivial
     allowedOperations: 3
-    bombsPerMinute: 10
+    bombsPerMinute: 15
     bombSpeed: 2
     minNumber: 1
     maxNumber: 20
@@ -23,7 +23,7 @@ MonoBehaviour:
     bombSpeedIncrement: 0
     timeToIncrement: 60
     customDifficulty: 0
-  - difficultyName: Primary Medium
+  - difficultyName: Easy
     allowedOperations: 3
     bombsPerMinute: 15
     bombSpeed: 2
@@ -35,15 +35,15 @@ MonoBehaviour:
     customDifficulty: 0
   - difficultyName: Multiplication Table
     allowedOperations: 12
-    bombsPerMinute: 15
+    bombsPerMinute: 20
     bombSpeed: 2
     minNumber: 4
     maxNumber: 100
-    bombsPerMinuteIncrement: 1
+    bombsPerMinuteIncrement: 2
     bombSpeedIncrement: 0
     timeToIncrement: 40
     customDifficulty: 0
-  - difficultyName: Plus Minus Fast
+  - difficultyName: Medium
     allowedOperations: 3
     bombsPerMinute: 30
     bombSpeed: 2
@@ -53,7 +53,7 @@ MonoBehaviour:
     bombSpeedIncrement: 0
     timeToIncrement: 30
     customDifficulty: 0
-  - difficultyName: Fast
+  - difficultyName: Hard
     allowedOperations: -1
     bombsPerMinute: 30
     bombSpeed: 2
@@ -63,7 +63,7 @@ MonoBehaviour:
     bombSpeedIncrement: 0
     timeToIncrement: 30
     customDifficulty: 0
-  - difficultyName: Fast 500
+  - difficultyName: Very Hard
     allowedOperations: -1
     bombsPerMinute: 30
     bombSpeed: 2
@@ -74,13 +74,13 @@ MonoBehaviour:
     timeToIncrement: 30
     customDifficulty: 0
   - difficultyName: Custom
-    allowedOperations: 15
-    bombsPerMinute: 60
+    allowedOperations: 12
+    bombsPerMinute: 30
     bombSpeed: 2
     minNumber: 1
-    maxNumber: 100
-    bombsPerMinuteIncrement: 2
+    maxNumber: 200
+    bombsPerMinuteIncrement: 1
     bombSpeedIncrement: 0
-    timeToIncrement: 30
+    timeToIncrement: 20
     customDifficulty: 1
-  selectedIndex: 6
+  selectedIndex: 2
