@@ -62,6 +62,7 @@ public class HighScoresUI : MonoBehaviour
                 yourScoreWindow.SetActive(true);
                 yourDifficulty.text = gameSession.currentDifficulty;
                 yourScore.text = gameSession.score.ToString();
+                optionsList.SetOption(optionsList.options.IndexOf(gameSession.currentDifficulty));
             }
         }
 
