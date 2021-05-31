@@ -15,3 +15,7 @@ MonoBehaviour:
   score: 0
   currentDifficulty: Multiplication Table
   isGameStarted: 0
+  missedEquations:
+  - 5 + 7 = 12
+  - 3 * 8 = 24
+  - 72 / 9 = 8

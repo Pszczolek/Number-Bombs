@@ -21,6 +21,11 @@ public class Bomb : MonoBehaviour
     [SerializeField] GameObject explosionPrefab;
     [SerializeField] TMP_Text text;
 
+    public string Equation { 
+        get { 
+            return $"{text.text} = {number}";
+        } }
+
 
     public void SetNumber(int num)
     {
@@ -59,14 +64,14 @@ public class Bomb : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        BombSpawner.Instance.BombMissed(this);
         Explode();
-        DamagePlayer();
+
     }
 
     private void DamagePlayer()
     {
-        Player.Instance.Hit();
-        ParticleTextController.Instance.BombLost(this);
+
     }
 
     private void Explode()
@@ -82,8 +87,7 @@ public class Bomb : MonoBehaviour
 
     public void Hit()
     {
-        Player.Instance.AddScore(scoreValue);
-        ParticleTextController.Instance.BombHit(this);
+        BombSpawner.Instance.BombHit(this);
         Explode();
 
     }

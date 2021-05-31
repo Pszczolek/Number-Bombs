@@ -25,12 +25,13 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         InputReader.Instance.OnEscape += ToggleMenu;
-        GameManager.Instance.OnGameOver += LoadHighScores;
+        GameManager.Instance.OnGameOver += LoadMissedEquations;
     }
 
     private void OnDestroy()
     {
         InputReader.Instance.OnEscape -= ToggleMenu;
+        GameManager.Instance.OnGameOver -= LoadMissedEquations;
     }
     public void ToggleMenu()
     {
@@ -47,6 +48,16 @@ public class UIManager : MonoBehaviour
             SceneManager.UnloadSceneAsync(pauseMenuIndex);
         }
 
+    }
+
+    public void LoadMissedEquations()
+    {
+        SceneManager.LoadSceneAsync("MissedBombs", LoadSceneMode.Additive);
+    }
+
+    public void CloseMissedEquations()
+    {
+        SceneManager.UnloadSceneAsync("MissedBombs");
     }
 
     public void LoadHighScores()

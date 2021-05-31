@@ -81,6 +81,19 @@ public class BombSpawner : MonoBehaviour
         }
     }
 
+    public void BombHit(Bomb hitBomb)
+    {
+        Player.Instance.AddScore(hitBomb.scoreValue);
+        ParticleTextController.Instance.BombHit(hitBomb);
+    }
+
+    public void BombMissed(Bomb missedBomb)
+    {
+        gameSession.AddMissedEquation(missedBomb);
+        Player.Instance.Hit();
+        ParticleTextController.Instance.BombLost(missedBomb);
+    }
+
     public void GameOver()
     {
         StopSpawn();
